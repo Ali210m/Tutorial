@@ -415,3 +415,82 @@ a:hover {
   }
 }
 }
+.signin {
+  display: grid;
+  gap: 24px;
+}
+
+.signin-card {
+  display: grid;
+  gap: 18px;
+  padding: 28px;
+  max-width: 420px;
+  border-radius: 20px;
+  background: rgba(12, 14, 23, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 20px 40px rgba(10, 11, 20, 0.35);
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.field label {
+  font-size: 14px;
+  color: rgba(231, 233, 240, 0.78);
+}
+
+.field input[type='email'],
+.field input[type='password'] {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  color: inherit;
+  font-size: 15px;
+}
+
+.field input[type='email']:focus,
+.field input[type='password']:focus {
+  outline: 2px solid rgba(142, 166, 255, 0.45);
+  border-color: rgba(142, 166, 255, 0.8);
+}
+
+.field-inline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.field-inline label {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 14px;
+}
+
+.link-ghost {
+  font-size: 14px;
+  color: #8ea6ff;
+}
+
+@media (max-width: 640px) {
+  .field-inline {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+}
+.signin-footer {
+  margin-top: 4px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  font-size: 14px;
+  color: rgba(231, 233, 240, 0.8);
+}
+
+.signin-footer .link-ghost {
+  font-weight: 600;
+}

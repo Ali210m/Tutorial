@@ -1,8 +1,10 @@
 import Logo from '/logo.svg'
 import { Hero } from './components/Hero'
 import { Section } from './components/Section'
-import type{ Project } from './components/ProjectCard'
+import type { Project } from './components/ProjectCard'
 import { ProjectCard } from './components/ProjectCard'
+import { SignIn } from './components/SignIn'
+import { useState } from 'react'
 const heroImage =
 	'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1600&q=80'
 
@@ -42,6 +44,7 @@ const timeline = [
 ]
 
 export default function App() {
+	const [isSignInOpen, setSignInOpen] = useState(false)
 	return (
 		<>
 			<nav className="top-nav">
@@ -55,6 +58,7 @@ export default function App() {
 					<a href="#projects">Projeler</a>
 					<a href="#roadmap">Yol Haritası</a>
 					<a href="#contact">İletişim</a>
+					<a href="#signin">Giriş</a>
 				</div>
 			</nav>
 
@@ -127,7 +131,8 @@ export default function App() {
 							<a href="https://twitter.com">Twitter</a>
 						</p>
 					</div>
-				</Section>
+					
+					</Section>
 			</main>
 
 			<footer className="footer">
