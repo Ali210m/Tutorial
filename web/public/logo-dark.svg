@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <rect width="100%" height="100%" fill="#0b1020" rx="20" />
+  <g transform="translate(100,100)">
+    <circle cx="0" cy="0" r="45" fill="#61DAFB" />
+    <g stroke="#61DAFB" stroke-width="6" fill="none">
+      <ellipse rx="80" ry="30" cx="0" cy="0" transform="rotate(0)"/>
+      <ellipse rx="80" ry="30" cx="0" cy="0" transform="rotate(60)"/>
+      <ellipse rx="80" ry="30" cx="0" cy="0" transform="rotate(120)"/>
+    </g>
+    <text x="0" y="12" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="32" fill="#FFFFFF">Edu</text>
+  </g>
+</svg>
