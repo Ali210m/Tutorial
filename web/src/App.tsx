@@ -3,7 +3,7 @@ import { Hero } from './components/Hero'
 import { Section } from './components/Section'
 import type { Project } from './components/ProjectCard'
 import { ProjectCard } from './components/ProjectCard'
-import { SignIn } from './components/SignIn'
+import { SignInModal } from './components/SignInModal'
 import { useState } from 'react'
 const heroImage =
 	'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1600&q=80'
@@ -58,7 +58,9 @@ export default function App() {
 					<a href="#projects">Projeler</a>
 					<a href="#roadmap">Yol Haritası</a>
 					<a href="#contact">İletişim</a>
-					<a href="#signin">Giriş</a>
+					<button className="link-button" type="button" onClick={() => setSignInOpen(true)}>
+						Giriş
+					</button>
 				</div>
 			</nav>
 
@@ -134,6 +136,7 @@ export default function App() {
 					
 					</Section>
 			</main>
+			<SignInModal open={isSignInOpen} onClose={() => setSignInOpen(false)} />
 
 			<footer className="footer">
 				<p>© {new Date().getFullYear()} Frontend Journey — React + TSX</p>
