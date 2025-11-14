@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-:root {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   line-height: 1.6;
   font-weight: 400;
@@ -353,68 +352,8 @@ a:hover {
   }
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #161825;
-    background-color: #f4f6fb;
-  }
 
-  body {
-    background: linear-gradient(180deg, #dfe5ff 0%, #f4f6fb 60%, #ffffff 100%);
-  }
 
-  .top-nav {
-    background: rgba(255, 255, 255, 0.86);
-    border-bottom: 1px solid rgba(16, 18, 34, 0.08);
-  }
-
-  .hero-overlay {
-    background: linear-gradient(120deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.5));
-  }
-
-  .button {
-    background: rgba(18, 19, 31, 0.08);
-    color: #161825;
-    border-color: rgba(18, 19, 31, 0.08);
-  }
-
-  .button:hover {
-    background: rgba(18, 19, 31, 0.12);
-  }
-
-  .section-pill {
-    background: rgba(18, 19, 31, 0.08);
-  }
-
-  .section-content,
-  .timeline-title {
-    color: rgba(22, 24, 37, 0.75);
-  }
-
-  .project-card,
-  .timeline-card,
-  .contact-card {
-    background: rgba(255, 255, 255, 0.9);
-    border-color: rgba(18, 19, 31, 0.05);
-    box-shadow: 0 18px 40px rgba(18, 19, 31, 0.12);
-  }
-
-  .tag-list li {
-    background: rgba(18, 19, 31, 0.08);
-    border-color: rgba(18, 19, 31, 0.1);
-  }
-
-  .timeline-dot {
-    background: #4b5dff;
-    box-shadow: 0 0 0 6px rgba(75, 93, 255, 0.2);
-  }
-
-  .footer {
-    color: rgba(22, 24, 37, 0.6);
-    border-top-color: rgba(22, 24, 37, 0.1);
-  }
-}
-}
 .signin {
   display: grid;
   gap: 24px;
@@ -498,7 +437,7 @@ a:hover {
 .link-button {
   background: none;
   border: none;
-  color: inherist;
+  color: inherit;
   cursor: pointer;
   padding: 0;
 }
@@ -541,4 +480,140 @@ box-shadow: 0 28px 80px rgba(10, 11, 20, 0.06);
 
 .modal-close:hover {
   color: rgba(231, 233, 240, 0.9);
+}
+
+.theme-toggle {
+  position: relative;
+  width: 50px;
+  height: 26px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.theme-toggle-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Light mode aktivken icon solda */
+html[data-theme='light'] .theme-toggle-icon {
+  transform: translateX(0);
+  background: #ffd700;
+}
+
+/* Dark mode aktivken icon sagda */
+html[data-theme='dark'] .theme-toggle-icon {
+  transform: translateX(26px);
+}
+
+/* Light mode icin toggle arka plani */
+html[data-theme='light'] .theme-toggle {
+  background: rgba(22, 24, 37, 0.15);
+  border-color: rgba(22, 24, 37, 0.2);
+}
+
+html[data-theme='light'] .theme-toggle:hover {
+  background: rgba(22, 24, 37, 0.2);
+  border-color: rgba(22, 24, 37, 0.3);
+}
+
+/* Light mode icin genel renkler */
+html[data-theme='light'] {
+  color: #161825;
+  background-color: #f4f6fb;
+}
+
+html[data-theme='light'] body {
+background: linear-gradient(180deg, #dfe5ff 0%, #f4f6fb 60%, #ffffff 100%);
+}
+
+html[data-theme='light'] .top-nav {
+  background: rgba(255, 255, 255, 0.86);
+  border-bottom: 1px solid rgba(16, 18, 34, 0.08);
+}
+
+html[data-theme='light'] .hero-overlay {
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.5));
+}
+
+html[data-theme='light'] .button {
+  background: rgba(18, 19, 31, 0.08);
+  color: #161825;
+  border-color: rgba(18, 19, 31, 0.08);
+}
+
+html[data-theme='light'] .button:hover {
+  background: rgba(18, 19, 31, 0.12);
+}
+
+html[data-theme='light'] .section-pill {
+  background: rgba(18, 19, 31, 0.08);
+}
+
+html[data-theme='light'] .section-content,
+html[data-theme='light'] .timeline-title {
+  color: rgba(22, 24, 37, 0.75);
+}
+
+html[data-theme='light'] .project-card,
+html[data-theme='light'] .timeline-card,
+html[data-theme='light'] .contact-card,
+html[data-theme='light'] .signin-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(18, 19, 31, 0.05);
+  box-shadow: 0 18px 40px rgba(18, 19, 31, 0.12);
+}
+
+html[data-theme='light'] .tag-list li {
+  background: rgba(18, 19, 31, 0.08);
+  border-color: rgba(18, 19,131, 0.1);
+}
+
+html[data-theme='light'] .timeline-dot {
+  background: #4b5dff;
+  box-shadow: 0 0 0 6px rgba(75, 93, 255, 0.2);
+}
+
+html[data-theme='light'] .footer {
+  color: rgba(22, 24, 37, 0.6);
+  border-top-color: rgba(22, 24, 37, 0.1);
+}
+
+html[data-theme='light'] .field label {
+  color: rgba(22, 24, 37, 0.75);
+}
+
+html[data-theme='light'] .field input[type='email'],
+html[data-theme='light'] .field input[type='password'] {
+  border-color: rgba(22, 24, 37, 0.12);
+  background: rgba(22, 24, 37, 0.05);
+  color: #161825;
+}
+
+html[data-theme='light'] .modal-backdrop {
+  background: rgba(244, 246, 251, 0,72);
+}
+
+html[data-theme='light'] .modal-panel {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(22, 24, 37, 0.07);
 }

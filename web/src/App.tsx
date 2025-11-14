@@ -4,7 +4,7 @@ import { Section } from './components/Section'
 import type { Project } from './components/ProjectCard'
 import { ProjectCard } from './components/ProjectCard'
 import { SignInModal } from './components/SignInModal'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 const heroImage =
 	'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1600&q=80'
 
@@ -45,6 +45,26 @@ const timeline = [
 
 export default function App() {
 	const [isSignInOpen, setSignInOpen] = useState(false)
+    const [theme, setTheme] = useState<'light' | 'dark'>('light')
+	
+	useEffect(() => {
+		const saved = localStorage.getItem('theme')
+		let initialTheme: 'light' | 'dark' = 'light'
+
+	    if (saved === 'light' || saved === 'dark') {
+			initialTheme = saved
+		}
+		// Eğer localStorage'da kayıtlı tema yoksa, varsayılan olarak light mode kullan
+
+		setTheme(initialTheme)
+		// Ilk yuklemede de data-theme'u set et
+		document.documentElement.setAttribute('data-theme', initialTheme)
+   }, [])
+	useEffect(() => {
+	document.documentElement.setAttribute('data-theme', theme)
+	localStorage.setItem('theme', theme)
+}, [theme])
+
 	return (
 		<>
 			<nav className="top-nav">
@@ -60,6 +80,20 @@ export default function App() {
 					<a href="#contact">İletişim</a>
 					<button className="link-button" type="button" onClick={() => setSignInOpen(true)}>
 						Giriş
+					</button>
+					<button 
+					className="theme-toggle" 
+					type="button" 
+					onClick={() => {
+						console.log('Toggle clicked, current theme:', theme)
+						setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))
+					}}
+					aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+					>
+						<span className="theme-toggle-icon">
+							{theme === 'dark' ? '🌙' : '☀️'}
+						</span>
+					
 					</button>
 				</div>
 			</nav>
