@@ -4,7 +4,10 @@ import { Section } from './components/Section'
 import type { Project } from './components/ProjectCard'
 import { ProjectCard } from './components/ProjectCard'
 import { SignInModal } from './components/SignInModal'
+import { useLanguage } from './contexts/LanguageContext'
 import { useState, useEffect } from 'react'
+import tr from './i18n/tr.json'
+import en from './i18n/en.json'
 const heroImage =
 	'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1600&q=80'
 
@@ -37,13 +40,12 @@ const projects: Project[] = [
 	},
 ]
 
-const timeline = [
-	{ year: '2024', title: 'HTML & CSS', description: 'Temel semantik etiketler, responsive tasarım.' },
-	{ year: '2025', title: 'React + TypeScript', description: 'Bileşenler, hook’lar, type güvenliği.' },
-	{ year: '2026', title: 'Fullstack Planı', description: 'API, veritabanı, deploy senaryoları.' },
-]
+const translations = { tr, en }
 
 export default function App() {
+	const { t, language, setLanguage } = useLanguage()
+	const timeline = translations[language].roadmap.timeline
+	const pillars = translations[language].about.pillars
 	const [isSignInOpen, setSignInOpen] = useState(false)
     const [theme, setTheme] = useState<'light' | 'dark'>('light')
 	
@@ -73,13 +75,13 @@ export default function App() {
 					Frontend Journey
 				</a>
 				<div className="links">
-					<a href="#home">Ana Sayfa</a>
-					<a href="#about">Ben Kimim?</a>
-					<a href="#projects">Projeler</a>
-					<a href="#roadmap">Yol Haritası</a>
-					<a href="#contact">İletişim</a>
+					<a href="#home">{t('nav.home')}</a>
+					<a href="#about">{t('nav.about')}</a>
+					<a href="#projects">{t('nav.projects')}</a>
+					<a href="#roadmap">{t('nav.roadmap')}</a>
+					<a href="#contact">{t('nav.contact')}</a>
 					<button className="link-button" type="button" onClick={() => setSignInOpen(true)}>
-						Giriş
+						{t('nav.signin')}
 					</button>
 					<button 
 					className="theme-toggle" 
@@ -95,21 +97,29 @@ export default function App() {
 						</span>
 					
 					</button>
+					<button
+					className="link-button"
+					type="button"
+					onClick={() => setLanguage(language === 'tr' ? 'en' : 'tr')}
+					aria-label="Change language"
+					>
+						{language === 'tr' ?  '🇹🇷 Türkçe' : '🇺🇸 English'}
+					</button>
 				</div>
 			</nav>
 
 			<Hero
-				headline="React + TypeScript ile güçlü arayüzler"
-				subheadline="Statik bir temel üzerinden bileşen yapısını, tip güvenliğini ve modern tasarım prensiplerini öğreniyorum."
+				headline={t('hero.headline')}
+				subheadline={t('hero.subheadline')}
 				backgroundImage={heroImage}
 				links={[
-					{ label: 'Projelerimi Gör', href: '#projects' },
-					{ label: 'Yol Haritası', href: '#roadmap' },
+					{ label: t('hero.cta1'), href: '#projects' },
+					{ label: t('hero.cta2'), href: '#roadmap' },
 				]}
 			/>
 
 			<main className="main" id="home">
-				<Section id="about" title="HAKKIMDA" tagline="Modern web geliştiricisi olma yolculuğum">
+				<Section id="about" title={t('about.title')} tagline={t('about.tagline')}>
 					<div className="about-grid">
 						<img
 							className="about-photo"
@@ -118,21 +128,18 @@ export default function App() {
 						/>
 						<div>
 							<p>
-								Frontend öğrenmeye yeni başlayan ama tasarım ve kullanıcı deneyimini çok önemseyen bir
-								geliştiriciyim. React ve TypeScript ile bileşen mantığını kavrayıp tekrar kullanılabilir
-								yapılar kurmayı hedefliyorum.
+								{t('about.description')}
 							</p>
 							<p className="about-pillars">
-								<span>UI Tasarım</span>
-								<span>React Hook’ları</span>
-								<span>TypeScript Tipleri</span>
-								<span>Responsive CSS</span>
+								{pillars.map((pillar, index) => (
+									<span key={index}>{pillar}</span>
+								))}
 							</p>
 						</div>
 					</div>
 				</Section>
 
-				<Section id="projects" title="PROJELER" tagline="Öğrenirken oluşturduğum örnek arayüzler">
+				<Section id="projects" title={t('projects.title')} tagline={t('projects.tagline')}>
 					<div className="projects-wrap">
 						{projects.map((project) => (
 							<ProjectCard key={project.title} project={project} />
@@ -140,7 +147,7 @@ export default function App() {
 					</div>
 				</Section>
 
-				<Section id="roadmap" title="YOL HARİTASI" tagline="Öğrenme planım">
+				<Section id="roadmap" title={t('roadmap.title')} tagline={t('roadmap.tagline')}>
 					<ol className="timeline">
 						{timeline.map((item) => (
 							<li key={item.year}>
@@ -155,11 +162,11 @@ export default function App() {
 					</ol>
 				</Section>
 
-				<Section id="contact" title="İLETİŞİM" tagline="Beraber öğrenelim">
+				<Section id="contact" title={t('contact.title')} tagline={t('contact.tagline')}>
 					<div className="contact-card">
-						<p>Frontend öğrenirken bana ulaşmak istersen:</p>
+						<p>{t('contact.message')}</p>
 						<a className="button" href="mailto:example@example.com">
-							E-posta Gönder
+							{t('contact.button')}
 						</a>
 						<p className="contact-links">
 							<a href="https://github.com">GitHub</a>
@@ -173,7 +180,7 @@ export default function App() {
 			<SignInModal open={isSignInOpen} onClose={() => setSignInOpen(false)} />
 
 			<footer className="footer">
-				<p>© {new Date().getFullYear()} Frontend Journey — React + TSX</p>
+				<p>© {new Date().getFullYear()} {t('footer.text')}</p>
 			</footer>
 		</>
 	)

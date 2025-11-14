@@ -1,19 +1,49 @@
 {
-    "nav": {
-      "home": "Ana Sayfa",
-      "about": "Ben Kimim?",
-      "projects": "Projeler",
-      "roadmap": "Yol Haritası",
-      "contact": "İletişim",
-      "signin": "Giriş"
-    },
-    "hero": {
-      "headline": "React + TypeScript ile güçlü arayüzler",
-      "subheadline": "Statik bir temel üzerinden bileşen yapısını, tip güvenliğini ve modern tasarım prensiplerini öğreniyorum."
-    },
-    "about": {
-      "title": "HAKKIMDA",
-      "tagline": "Modern web geliştiricisi olma yolculuğum",
-      "description": "Frontend öğrenmeye yeni başlayan ama tasarım ve kullanıcı deneyimini çok önemseyen bir geliştiriciyim. React ve TypeScript ile bileşen mantığını kavrayıp tekrar kullanılabilir yapılar kurmayı hedefliyorum."
-    }
-  }
+  "nav": {
+    "home": "Ana Sayfa",
+    "about": "Ben Kimim?",
+    "projects": "Projeler",
+    "roadmap": "Yol Haritası",
+    "contact": "Iletişim",
+    "signin": "Giriş"  
+},
+
+"hero": {
+  "headline": "React + TypeScript ile güçlü arayüzler",
+  "subheadline": "Statik bir temel üzerinden bileşen yapısını, tip güvenliğini ve modern tasarım prensiplerini öğreniyorum.",
+  "cta1": "Proje Gör",
+  "cta2": "Yol Haritası"
+},
+
+"about": {
+  "title": "HAKKIMDA",
+  "tagline": "Modern web geliştiricisi olma yolculuğum",
+  "description": "Frontend öğrenmeye yeni başlayan ama tasarım ve kullanıcı deneyimini çok önemseyen bir geliştiriciyim. React ve TypeScript ile bileşen mantığını kavrayıp tekrar kullanılabilir yapılar kurmayı hedefliyorum.",
+  "pillars": ["UI Tasarım", "React Hook'ları", "TypeScript Tipleri", "Responsive CSS"]
+},
+
+"projects": {
+  "title": "PROJELER",
+  "tagline": "Öğrenirken oluşturduğum örnek arayüzler"
+},
+
+"roadmap": {
+  "title": "Yol Haritası",
+  "tagline": "Öğrenme planım",
+  "timeline": [
+    { "year": "2024", "title": "HTML & CSS", "description": "Temel semantik etiketler, responsive tasarım." },
+    { "year": "2025", "title": "React + TypeScript", "description": "Bileşenler, hook'lar, type güvenliği." },
+    { "year": "2026", "title": "Fullstack Planı", "description": "API, veritabanı, deploy senaryoları." }
+  ]
+},
+
+"contact": {
+  "title": "Iletişim",
+  "tagline": "Beraber öğrenelim",
+  "message": "Frontend öğrenirken bana ulaşmak istersen",
+  "button": "E-posta Gönder"
+},
+"footer": {
+  "text": "Frontend Journey — React + TSX"
+}
+}

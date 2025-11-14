@@ -40,12 +40,17 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1100px;
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 16px 20px;
-  backdrop-filter: blur(12px);
-  background: rgba(7, 8, 13, 0.7);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 18px 60px;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(7, 8, 13, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 
+  inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .brand {
@@ -547,12 +552,22 @@ background: linear-gradient(180deg, #dfe5ff 0%, #f4f6fb 60%, #ffffff 100%);
 }
 
 html[data-theme='light'] .top-nav {
-  background: rgba(255, 255, 255, 0.86);
-  border-bottom: 1px solid rgba(16, 18, 34, 0.08);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(16, 18, 34, 0.1);
+  border-left: 1px solid rgba(16, 18, 34, 0.05);
+  border-right: 1px solid rgba(16, 18, 34, 0.05);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 html[data-theme='light'] .hero-overlay {
   background: linear-gradient(120deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.5));
+}
+
+html[data-theme='light'] .hero-subheadline {
+  color: rgba(22, 24, 37, 0.75);
 }
 
 html[data-theme='light'] .button {
@@ -610,10 +625,17 @@ html[data-theme='light'] .field input[type='password'] {
 }
 
 html[data-theme='light'] .modal-backdrop {
-  background: rgba(244, 246, 251, 0,72);
+  background: rgba(244, 246, 251, 0.72);
 }
 
 html[data-theme='light'] .modal-panel {
   background: rgba(255, 255, 255, 0.95);
   border-color: rgba(22, 24, 37, 0.07);
+}
+html[data-theme='light'] .modal-close {
+  color: rgba(22, 24, 37, 0.6);
+}
+
+html[data-theme='light'] .modal-close:hover {
+  color: rgba(22, 24, 37, 0.9)
 }
