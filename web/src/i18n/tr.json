@@ -1,0 +1,19 @@
+{
+    "nav": {
+      "home": "Ana Sayfa",
+      "about": "Ben Kimim?",
+      "projects": "Projeler",
+      "roadmap": "Yol Haritası",
+      "contact": "İletişim",
+      "signin": "Giriş"
+    },
+    "hero": {
+      "headline": "React + TypeScript ile güçlü arayüzler",
+      "subheadline": "Statik bir temel üzerinden bileşen yapısını, tip güvenliğini ve modern tasarım prensiplerini öğreniyorum."
+    },
+    "about": {
+      "title": "HAKKIMDA",
+      "tagline": "Modern web geliştiricisi olma yolculuğum",
+      "description": "Frontend öğrenmeye yeni başlayan ama tasarım ve kullanıcı deneyimini çok önemseyen bir geliştiriciyim. React ve TypeScript ile bileşen mantığını kavrayıp tekrar kullanılabilir yapılar kurmayı hedefliyorum."
+    }
+  }

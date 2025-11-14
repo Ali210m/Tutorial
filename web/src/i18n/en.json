@@ -1,0 +1,19 @@
+{
+    "nav": {
+      "home": "Home",
+      "about": "About Me",
+      "projects": "Projects",
+      "roadmap": "Roadmap",
+      "contact": "Contact",
+      "signin": "Sign In"
+    },
+    "hero": {
+      "headline": "Powerful interfaces with React + TypeScript",
+      "subheadline": "I'm learning component structure, type safety, and modern design principles through a static foundation."
+    },
+    "about": {
+      "title": "ABOUT",
+      "tagline": "My journey to becoming a modern web developer",
+      "description": "I'm a developer who's new to frontend but values design and user experience highly. I aim to understand component logic with React and TypeScript and build reusable structures."
+    }
+  }
