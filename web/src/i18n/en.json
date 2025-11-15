@@ -5,7 +5,10 @@
   "projects": "Projects",
   "roadmap": "Roadmap",
   "contact": "Contact",
-  "signin": "Sign In"
+  "signin": "Sign In",
+  "brand": "Frontend Journey",
+  "logoAlt": "Frontend Journey logo",
+  "language": "Language"
   },
 
   "hero": {
@@ -19,12 +22,31 @@
     "title": "ABOUT",
     "tagline": "My journey to becoming a modern web developer",
     "description": "I'm a developer who's new to frontend but values design and user experience highly. I aim to understand component logic with React and TypeScript and build reusable structures.",
-    "pillars": ["UI Design", "React Hooks", "TypeScript Types", "Responsive CSS"]
+    "pillars": ["UI Design", "React Hooks", "TypeScript Types", "Responsive CSS"],
+    "photoAlt": "Workspace"
   },
 
   "projects": {
     "title": "Projects",
-    "tagline": "Example interfaces I created while learning"
+    "tagline": "Example interfaces I created while learning",
+    "viewProject": "View Project",
+    "items": [
+      {
+        "title": "Portfolio Landing",
+        "description": "A modern and static personal site. Structured in sections with React components.",
+        "tags": ["React", "TypeScript", "CSS Grid"]
+      },
+      {
+        "title": "Blog Homepage",
+        "description": "A simple blog homepage designed with post cards, category filters, and a hero image.",
+        "tags": ["Vite", "Responsive", "Design"]
+      },
+      {
+        "title": "UI Kit",
+        "description": "A mini UI package containing components like buttons, cards, and badges. Built as React components.",
+        "tags": ["Components", "Storybook", "Reusable"]
+      }
+    ]
   },
 
   "roadmap": {
@@ -45,5 +67,19 @@
   },
   "footer": {
     "text": "Frontend Journey — React + TSX"
+  },
+
+  "signin": {
+    "pill": "ACCOUNT",
+    "title": "Sign in to Frontend Journey",
+    "email": "Email",
+    "emailPlaceholder": "example@email.com",
+    "password": "Password",
+    "passwordPlaceholder": "Your password",
+    "remember": "Remember me",
+    "forgotPassword": "Forgot password",
+    "submit": "Sign in",
+    "noAccount": "Don't have an account?",
+    "createAccount": "Create an account"
   }
 }

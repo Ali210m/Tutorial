@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useLanguage } from '../contexts/LanguageContext'
 
 interface SignInFormState {
   email: string
@@ -12,6 +13,8 @@ export function SignIn() {
     password: '',
     remember: false,
   })
+
+  const { t } = useLanguage()
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { name, value, type, checked } = event.target
@@ -30,18 +33,18 @@ export function SignIn() {
   return (
     <section className="section signin" id="signin">
       <div className="section-header">
-        <span className="section-pill">HESAP</span>
-        <h2>Frontend Journey’e giriş yap</h2>
+        <span className="section-pill">{t('signin.pill')}</span>
+        <h2>{t('signin.title')}</h2>
       </div>
 
       <form className="signin-card" onSubmit={handleSubmit}>
         <div className="field">
-          <label htmlFor="email">E-posta</label>
+          <label htmlFor="email">{t('signin.email')}</label>
           <input
             id="email"
             name="email"
             type="email"
-            placeholder="ornek@eposta.com"
+            placeholder={t('signin.emailPlaceholder')}
             value={form.email}
             onChange={handleChange}
             required
@@ -49,12 +52,12 @@ export function SignIn() {
         </div>
 
         <div className="field">
-          <label htmlFor="password">Şifre</label>
+          <label htmlFor="password">{t('signin.password')}</label>
           <input
             id="password"
             name="password"
             type="password"
-            placeholder="Şifren"
+            placeholder={t('signin.passwordPlaceholder')}
             value={form.password}
             onChange={handleChange}
             required
@@ -69,20 +72,20 @@ export function SignIn() {
               checked={form.remember}
               onChange={handleChange}
             />
-            Beni hatırla
+            {t('signin.remember')}
           </label>
           <a className="link-ghost" href="#">
-            Şifremi unuttum
+            {t('signin.forgotPassword')}
           </a>
         </div>
 
         <button className="button" type="submit">
-          Giriş yap
+          {t('signin.submit')}
         </button>
         <div className="signin-footer">
-    <span>Hesabın yok mu?</span>
+    <span>{t('signin.noAccount')}</span>
     <a className="link-ghost" href="#">
-      Yeni hesap oluştur
+      {t('signin.createAccount')}
     </a>
   </div>
       </form>

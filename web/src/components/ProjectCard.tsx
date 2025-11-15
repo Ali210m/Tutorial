@@ -1,3 +1,4 @@
+import { useLanguage } from '../contexts/LanguageContext'
 export interface Project {
 	title: string
 	description: string
@@ -11,6 +12,7 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
+	const { t } = useLanguage()
 	return (
 		<article className="project-card">
 			<div className="project-image" style={{ backgroundImage: `url(${project.image})` }} />
@@ -19,7 +21,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 					<h3>{project.title}</h3>
 					{project.url ? (
 						<a className="project-link" href={project.url}>
-							Projeyi Gör
+							{t('projects.viewProject')}
 						</a>
 					) : null}
 				</div>

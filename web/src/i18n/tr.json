@@ -5,7 +5,10 @@
     "projects": "Projeler",
     "roadmap": "Yol Haritası",
     "contact": "Iletişim",
-    "signin": "Giriş"  
+    "signin": "Giriş",
+    "brand": "Frontend Journey",
+    "logoAlt": "Frontend Journey logosu",
+    "language": "Dil Seçimi"
 },
 
 "hero": {
@@ -19,12 +22,31 @@
   "title": "HAKKIMDA",
   "tagline": "Modern web geliştiricisi olma yolculuğum",
   "description": "Frontend öğrenmeye yeni başlayan ama tasarım ve kullanıcı deneyimini çok önemseyen bir geliştiriciyim. React ve TypeScript ile bileşen mantığını kavrayıp tekrar kullanılabilir yapılar kurmayı hedefliyorum.",
-  "pillars": ["UI Tasarım", "React Hook'ları", "TypeScript Tipleri", "Responsive CSS"]
+  "pillars": ["UI Tasarım", "React Hook'ları", "TypeScript Tipleri", "Responsive CSS"],
+  "photoAlt": "Çalışma masası"
 },
 
 "projects": {
   "title": "PROJELER",
-  "tagline": "Öğrenirken oluşturduğum örnek arayüzler"
+  "tagline": "Öğrenirken oluşturduğum örnek arayüzler",
+  "viewProject": "Projeyi Gör",
+  "items": [
+    {
+      "title": "Portfolio Landing",
+      "description": "Modern ve statik bir kişisel sıte. React bıleşenlerı ıle bolumler halınde yapılandırıldı.",
+      "tags": ["React", "TypeScript", "CSS Grid"]
+    },
+    {
+      "title": "Blog Anasayfası",
+      "description": "Yazı kartları, kategori filtreleri ve hero görseli ile tasarlanmış basıt bır blog ana sayfası.",
+      "tags": ["Vite", "Responsive", "Design"]
+    },
+    {
+      "title": "UI Kit",
+      "description": "Button, card, badge gibi bileşenlerin bulunduğu mini bir UI paketi. Taslak olarak React bileşenleri.",
+      "tags": ["Components", "Storybook", "Reusable"]
+    }
+  ]
 },
 
 "roadmap": {
@@ -45,5 +67,19 @@
 },
 "footer": {
   "text": "Frontend Journey — React + TSX"
+},
+
+"signin": {
+  "pill": "HESAP",
+  "title": "Frontend Journey'e giriş yap",
+  "email": "E-posta",
+  "emailPlaceholder": "ornek@email.com",
+  "password": "Parola",
+  "passwordPlaceholder": "şifreniz",
+  "remember": "Beni hatırla",
+  "forgotPassword": "Parolamı unuttum",
+  "submit": "Giriş Yap",
+  "noAccount": "Hesabınız yok mu?",
+  "createAccount": "Yeni hesap oluştur"
 }
 }

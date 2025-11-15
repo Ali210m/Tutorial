@@ -1,7 +1,6 @@
 import Logo from '/logo.svg'
 import { Hero } from './components/Hero'
 import { Section } from './components/Section'
-import type { Project } from './components/ProjectCard'
 import { ProjectCard } from './components/ProjectCard'
 import { SignInModal } from './components/SignInModal'
 import { useLanguage } from './contexts/LanguageContext'
@@ -11,43 +10,24 @@ import en from './i18n/en.json'
 const heroImage =
 	'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1600&q=80'
 
-const projects: Project[] = [
-	{
-		title: 'Portfolio Landing',
-		description: 'Modern ve statik bir kişisel site. React bileşenleri ile bölümler halinde yapılandırıldı.',
-		image:
-			'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80',
-		tags: ['React', 'TypeScript', 'CSS Grid'],
-		url: '#',
-	},
-	{
-		title: 'Blog Anasayfası',
-		description:
-			'Yazı kartları, kategori filtreleri ve hero görseli ile tasarlanmış basit bir blog ana sayfası.',
-		image:
-			'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80',
-		tags: ['Vite', 'Responsive', 'Design'],
-		url: '#',
-	},
-	{
-		title: 'UI Kit',
-		description:
-			'Button, card, badge gibi bileşenlerin bulunduğu mini bir UI paketi. Taslak olarak React bileşenleri.',
-		image:
-			'https://images.unsplash.com/photo-1580894908361-967195033215?auto=format&fit=crop&w=800&q=80',
-		tags: ['Components', 'Storybook', 'Reusable'],
-		url: '#',
-	},
-]
-
 const translations = { tr, en }
 
 export default function App() {
 	const { t, language, setLanguage } = useLanguage()
 	const timeline = translations[language].roadmap.timeline
 	const pillars = translations[language].about.pillars
+	const projects = translations[language].projects.items.map((item, index) => ({
+		...item,
+		image: [
+			'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80',
+			'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80',
+			'https://images.unsplash.com/photo-1580894908361-967195033215?auto=format&fit=crop&w=800&q=80',
+		][index] || '',
+		url: '#',
+	})) || []
 	const [isSignInOpen, setSignInOpen] = useState(false)
     const [theme, setTheme] = useState<'light' | 'dark'>('light')
+	const [isLanguageOpen, setLanguageOpen] = useState(false)
 	
 	useEffect(() => {
 		const saved = localStorage.getItem('theme')
@@ -63,16 +43,33 @@ export default function App() {
 		document.documentElement.setAttribute('data-theme', initialTheme)
    }, [])
 	useEffect(() => {
-	document.documentElement.setAttribute('data-theme', theme)
-	localStorage.setItem('theme', theme)
-}, [theme])
+		document.documentElement.setAttribute('data-theme', theme)
+		localStorage.setItem('theme', theme)
+	}, [theme])
+
+	useEffect(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			const target = event.target as HTMLElement
+			if (!target.closest('.language-dropdown')) {
+				setLanguageOpen(false)
+			}
+		}
+
+		if (isLanguageOpen) {
+			document.addEventListener('click', handleClickOutside)
+		}
+
+		return () => {
+			document.removeEventListener('click', handleClickOutside)
+		}
+	}, [isLanguageOpen])
 
 	return (
 		<>
 			<nav className="top-nav">
 				<a className="brand" href="#home">
-					<img src={Logo} alt="Frontend Journey logo" width={28} height={28} />
-					Frontend Journey
+					<img src={Logo} alt={t('nav.logoAlt')} width={28} height={28} />
+					{t('nav.brand')}
 				</a>
 				<div className="links">
 					<a href="#home">{t('nav.home')}</a>
@@ -95,16 +92,42 @@ export default function App() {
 						<span className="theme-toggle-icon">
 							{theme === 'dark' ? '🌙' : '☀️'}
 						</span>
+						</button>
 					
-					</button>
-					<button
-					className="link-button"
-					type="button"
-					onClick={() => setLanguage(language === 'tr' ? 'en' : 'tr')}
-					aria-label="Change language"
-					>
-						{language === 'tr' ?  '🇹🇷 Türkçe' : '🇺🇸 English'}
-					</button>
+					<div className="language-dropdown">
+						<button
+							className="language-button"
+							type="button"
+							onClick={() => setLanguageOpen(!isLanguageOpen)}
+							aria-label="Select language"
+						>
+							🌐 {t('nav.language')}
+						</button>
+						{isLanguageOpen && (
+							<div className="language-menu">
+								<button
+									className={`language-option ${language === 'tr' ? 'active' : ''}`}
+									type="button"
+									onClick={() => {
+										setLanguage('tr')
+										setLanguageOpen(false)
+									}}
+								>
+									🇹🇷 Türkçe
+								</button>
+								<button
+									className={`language-option ${language === 'en' ? 'active' : ''}`}
+									type="button"
+									onClick={() => {
+										setLanguage('en')
+										setLanguageOpen(false)
+									}}
+								>
+									🇺🇸 English
+								</button>
+							</div>
+						)}
+					</div>
 				</div>
 			</nav>
 
@@ -124,7 +147,7 @@ export default function App() {
 						<img
 							className="about-photo"
 							src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80"
-							alt="Çalışma masası"
+							alt={t('about.photoAlt')}
 						/>
 						<div>
 							<p>

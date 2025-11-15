@@ -64,6 +64,19 @@ a:hover {
   font-size: 15px;
 }
 
+.links a,
+.links .link-button {
+  color: rgba(187, 191, 207, 0.9);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.links a:hover,
+.links .link-button:hover {
+  opacity: 0.7;
+  color: rgba(187, 191, 207, 1);
+}
+
 .hero {
   position: relative;
   display: grid;
@@ -445,10 +458,84 @@ a:hover {
   color: inherit;
   cursor: pointer;
   padding: 0;
+  font-size: 15px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
 }
 
 .link-button:hover {
   opacity: 0.7;
+}
+
+.language-dropdown {
+	position: relative;
+}
+
+.language-button {
+	background: rgba(255, 255, 255, 0.08);
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	border-radius: 8px;
+	padding: 6px 12px;
+	font-size: 14px;
+	font-weight: 500;
+	color: rgba(187, 191, 207, 0.9);
+	cursor: pointer;
+	transition: all 0.2s ease;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.language-button:hover {
+	background: rgba(255, 255, 255, 0.12);
+	border-color: rgba(255, 255, 255, 0.18);
+	color: rgba(187, 191, 207, 1);
+	transform: translateY(-1px);
+}
+
+.language-button:active {
+	transform: translateY(0);
+}
+
+.language-menu {
+	position: absolute;
+	top: calc(100% + 8px);
+	right: 0;
+	background: rgba(15, 17, 26, 0.95);
+	backdrop-filter: blur(20px);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 8px;
+	padding: 4px;
+	min-width: 140px;
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+	z-index: 100;
+}
+
+.language-option {
+	width: 100%;
+	background: none;
+	border: none;
+	padding: 10px 12px;
+	text-align: left;
+	color: rgba(187, 191, 207, 0.9);
+	cursor: pointer;
+	border-radius: 6px;
+	font-size: 14px;
+	transition: all 0.2s ease;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.language-option:hover {
+	background: rgba(255, 255, 255, 0.08);
+	color: rgba(187, 191, 207, 1);
+}
+
+.language-option.active {
+	background: rgba(255, 255, 255, 0.12);
+	color: rgba(187, 191, 207, 1);
+	font-weight: 500;
 }
 
 .modal-backdrop {
