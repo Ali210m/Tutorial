@@ -7,8 +7,6 @@ import { useLanguage } from './contexts/LanguageContext'
 import { useState, useEffect } from 'react'
 import tr from './i18n/tr.json'
 import en from './i18n/en.json'
-const heroImage =
-	'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1600&q=80'
 
 const translations = { tr, en }
 
@@ -134,7 +132,7 @@ export default function App() {
 			<Hero
 				headline={t('hero.headline')}
 				subheadline={t('hero.subheadline')}
-				backgroundImage={heroImage}
+				backgroundImage={theme === 'dark' ? '/hero-dark.png' : '/hero-light.png'}
 				links={[
 					{ label: t('hero.cta1'), href: '#projects' },
 					{ label: t('hero.cta2'), href: '#roadmap' },
